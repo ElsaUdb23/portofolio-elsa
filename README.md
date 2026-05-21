@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Portofolio-AsadMahmudAkram
 =======
 # React + Vite
@@ -103,3 +104,7 @@ This project is licensed under the MIT License.
 
 As'ad Mahmud Akram - [@asadmahmud](https://github.com/)
 >>>>>>> d79a996 (first commit)
+=======
+# portofolio-elsa
+Website portofolio pribadi menggunakan React Vite dan Firebase dengan fitur CRUD admin.
+>>>>>>> af7e8da7faa0547fbd868916ffed53295fef1034
