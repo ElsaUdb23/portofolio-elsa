@@ -247,7 +247,7 @@ export default function SplashScreen({ finishLoading }) {
             animate={phase >= 2 ? { opacity: 1 } : {}}
             transition={{ duration: 1 }}
           >
-            v2025
+            v2026
           </motion.p>
 
           {/* Bottom right */}
