@@ -91,7 +91,7 @@ const AdminLogin = () => {
           </div>
           <h1 className="text-2xl font-bold text-gray-900">Admin Panel</h1>
           <p className="text-xs text-gray-400 mt-1">
-            As'ad Mahmud Akram · Portofolio
+            Elsa Oktawiyani · Portofolio
           </p>
         </div>
 
