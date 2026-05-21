@@ -44,7 +44,6 @@ const AdminLogin = () => {
 
   return (
     <div className="fixed inset-0 flex">
-
       {/* ── Left Panel — Branding ── */}
       <div className="hidden md:flex w-5/12 lg:w-2/5 bg-gray-900 flex-col justify-between px-12 py-14 flex-shrink-0">
         {/* Top */}
@@ -53,18 +52,23 @@ const AdminLogin = () => {
             <Shield size={24} className="text-white" />
           </div>
           <h1 className="text-4xl font-bold text-white leading-snug">
-            Admin<br />Panel
+            Admin
+            <br />
+            Panel
           </h1>
           <p className="text-gray-400 text-sm mt-4 leading-relaxed max-w-xs">
-            Area terbatas. Hanya pengguna yang berwenang yang dapat mengakses panel ini.
+            Area terbatas. Hanya pengguna yang berwenang yang dapat mengakses
+            panel ini.
           </p>
         </div>
 
         {/* Bottom */}
         <div>
           <div className="border-t border-white/10 pt-6 mb-6">
-            <p className="text-xs text-gray-500 uppercase tracking-widest mb-1">Portofolio</p>
-            <p className="text-sm font-medium text-gray-300">As'ad Mahmud Akram</p>
+            <p className="text-xs text-gray-500 uppercase tracking-widest mb-1">
+              Portofolio
+            </p>
+            <p className="text-sm font-medium text-gray-300"> Elsa</p>
           </div>
           <div className="flex gap-2">
             {[...Array(5)].map((_, i) => (
@@ -80,18 +84,21 @@ const AdminLogin = () => {
 
       {/* ── Right Panel — Form ── */}
       <div className="flex-1 bg-white flex flex-col justify-center items-center px-8 overflow-y-auto">
-
         {/* Mobile-only branding */}
         <div className="md:hidden flex flex-col items-center mb-10">
           <div className="w-12 h-12 bg-gray-900 rounded-xl flex items-center justify-center mb-3">
             <Shield size={22} className="text-white" />
           </div>
           <h1 className="text-2xl font-bold text-gray-900">Admin Panel</h1>
-          <p className="text-xs text-gray-400 mt-1">As'ad Mahmud Akram · Portofolio</p>
+          <p className="text-xs text-gray-400 mt-1">
+            As'ad Mahmud Akram · Portofolio
+          </p>
         </div>
 
         <div className="w-full max-w-sm">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-1">Masuk ke Admin</h2>
+          <h2 className="text-2xl font-semibold text-gray-900 mb-1">
+            Masuk ke Admin
+          </h2>
           <p className="text-sm text-gray-400 mb-8">
             Masukkan kredensial Anda untuk melanjutkan.
           </p>
@@ -110,7 +117,10 @@ const AdminLogin = () => {
                 Email
               </label>
               <div className="relative">
-                <Mail size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
+                <Mail
+                  size={15}
+                  className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400"
+                />
                 <input
                   type="email"
                   value={email}
@@ -128,7 +138,10 @@ const AdminLogin = () => {
                 Password
               </label>
               <div className="relative">
-                <Lock size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
+                <Lock
+                  size={15}
+                  className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400"
+                />
                 <input
                   type={showPassword ? "text" : "password"}
                   value={password}

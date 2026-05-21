@@ -50,26 +50,26 @@ const Projects = () => {
   }, []);
 
   return (
-    <div className="max-w-6xl mx-auto px-4 bg-white text-black">
+    <div className="max-w-6xl mx-auto px-4 bg-transparent text-black">
       {/* Header */}
       <div className="mb-6">
-        <h1 className="text-2xl font-medium tracking-tight mb-1.5">Projects</h1>
-        <p className="text-stone-400 text-sm max-w-lg leading-relaxed">
+        <h1 className="text-2xl font-medium tracking-tight mb-1.5 text-black">Projects</h1>
+        <p className="text-gray-600 text-sm max-w-lg leading-relaxed">
           Beberapa proyek yang telah saya kerjakan, baik proyek swasta maupun proyek sumber terbuka.
         </p>
-        <div className="border-t border-stone-200 mt-4" />
+        <div className="border-t border-pink-300 mt-4" />
       </div>
 
       {/* Loading */}
       {isLoading && (
         <div className="flex justify-center items-center py-20">
-          <div className="w-6 h-6 border-2 border-stone-200 border-t-stone-600 rounded-full animate-spin" />
+          <div className="w-6 h-6 border-2 border-pink-300 border-t-pink-600 rounded-full animate-spin" />
         </div>
       )}
 
       {/* Empty */}
       {!isLoading && projects.length === 0 && (
-        <div className="flex flex-col items-center justify-center py-24 text-stone-400">
+        <div className="flex flex-col items-center justify-center py-24 text-gray-500">
           <FolderOpen size={32} className="mb-3 opacity-20" />
           <p className="text-sm">Belum ada project yang ditambahkan.</p>
         </div>
@@ -82,10 +82,10 @@ const Projects = () => {
             <div
               key={project.id}
               onClick={() => setModal(project)}
-              className="group relative flex flex-col bg-stone-50 border border-stone-200 rounded-xl overflow-hidden cursor-pointer hover:border-stone-300 hover:shadow-md transition-all duration-200"
+              className="group relative flex flex-col bg-pink-100/50 border border-pink-200 rounded-xl overflow-hidden cursor-pointer hover:border-pink-300 hover:shadow-md transition-all duration-200"
             >
               {/* Thumbnail */}
-              <div className="relative w-full h-40 bg-stone-200 overflow-hidden flex items-center justify-center">
+              <div className="relative w-full h-40 bg-pink-200/50 overflow-hidden flex items-center justify-center">
                 {project.img ? (
                   <img
                     src={project.img}
@@ -93,11 +93,11 @@ const Projects = () => {
                     className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-300"
                   />
                 ) : (
-                  <span className="text-xs text-stone-400 font-mono">no image</span>
+                  <span className="text-xs text-gray-500 font-mono">no image</span>
                 )}
 
                 {project.featured && (
-                  <div className="absolute top-2.5 right-2.5 inline-flex items-center gap-1 bg-blue-600 text-blue-50 text-[11px] font-medium px-2.5 py-1 rounded-full">
+                  <div className="absolute top-2.5 right-2.5 inline-flex items-center gap-1 bg-pink-600 text-white text-[11px] font-medium px-2.5 py-1 rounded-full">
                     <BadgeCheck size={11} />
                     Featured
                   </div>
@@ -106,22 +106,22 @@ const Projects = () => {
 
               {/* Body */}
               <div className="flex flex-col flex-1 p-3.5 gap-1">
-                <h3 className="text-[13px] font-medium text-stone-900 leading-snug">
+                <h3 className="text-[13px] font-medium text-black leading-snug">
                   {project.title}
                 </h3>
 
                 {project.category && (
-                  <span className="w-fit text-[11px] text-stone-500 bg-white border border-stone-200 px-2 py-0.5 rounded-full mt-0.5">
+                  <span className="w-fit text-[11px] text-gray-700 bg-pink-200/50 border border-pink-200 px-2 py-0.5 rounded-full mt-0.5">
                     {project.category}
                   </span>
                 )}
 
-                <p className="text-[12px] text-stone-500 line-clamp-3 leading-relaxed mt-1.5">
+                <p className="text-[12px] text-gray-700 line-clamp-3 leading-relaxed mt-1.5">
                   {project.description}
                 </p>
 
                 {project.tech?.length > 0 && (
-                  <div className="flex flex-wrap gap-1.5 mt-auto pt-3 border-t border-stone-200 mt-3">
+                  <div className="flex flex-wrap gap-1.5 mt-auto pt-3 border-t border-pink-200 mt-3">
                     {project.tech.map((tech, index) =>
                       techIcons[tech.toLowerCase()] ? (
                         <img
@@ -134,7 +134,7 @@ const Projects = () => {
                       ) : (
                         <span
                           key={index}
-                          className="text-[11px] bg-white border border-stone-200 text-stone-500 px-2 py-0.5 rounded-full"
+                          className="text-[11px] bg-pink-200/50 border border-pink-200 text-gray-700 px-2 py-0.5 rounded-full"
                         >
                           {tech}
                         </span>
@@ -155,12 +155,12 @@ const Projects = () => {
           onClick={() => setModal(null)}
         >
           <div
-            className="relative w-full max-w-2xl bg-white rounded-2xl overflow-hidden border border-stone-100 shadow-2xl"
+            className="relative w-full max-w-2xl bg-white rounded-2xl overflow-hidden border border-pink-100 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setModal(null)}
-              className="absolute top-3 right-3 z-10 p-1.5 bg-white rounded-lg border border-stone-200 text-stone-500 hover:text-stone-900 hover:border-stone-300 transition"
+              className="absolute top-3 right-3 z-10 p-1.5 bg-white rounded-lg border border-pink-200 text-gray-500 hover:text-black hover:border-pink-300 transition"
             >
               <X size={14} />
             </button>
@@ -175,24 +175,24 @@ const Projects = () => {
 
             <div className="p-5 text-black">
               <div className="flex items-center gap-2.5 mb-1.5">
-                <h3 className="text-sm font-medium text-stone-900">{modal.title}</h3>
+                <h3 className="text-sm font-medium text-black">{modal.title}</h3>
                 {modal.featured && (
-                  <span className="inline-flex items-center gap-1 bg-blue-600 text-blue-50 text-[11px] font-medium px-2.5 py-0.5 rounded-full shrink-0">
+                  <span className="inline-flex items-center gap-1 bg-pink-600 text-white text-[11px] font-medium px-2.5 py-0.5 rounded-full shrink-0">
                     <BadgeCheck size={11} /> Featured
                   </span>
                 )}
               </div>
 
               {modal.category && (
-                <span className="inline-block text-[11px] bg-stone-100 text-stone-500 border border-stone-200 px-2.5 py-0.5 rounded-full mb-3">
+                <span className="inline-block text-[11px] bg-pink-100 text-gray-700 border border-pink-200 px-2.5 py-0.5 rounded-full mb-3">
                   {modal.category}
                 </span>
               )}
 
-              <p className="text-sm text-stone-500 leading-relaxed">{modal.description}</p>
+              <p className="text-sm text-gray-700 leading-relaxed">{modal.description}</p>
 
               {modal.tech?.length > 0 && (
-                <div className="flex flex-wrap gap-2 mt-4 pt-3 border-t border-stone-100">
+                <div className="flex flex-wrap gap-2 mt-4 pt-3 border-t border-pink-100">
                   {modal.tech.map((tech, index) =>
                     techIcons[tech.toLowerCase()] ? (
                       <img
@@ -205,7 +205,7 @@ const Projects = () => {
                     ) : (
                       <span
                         key={index}
-                        className="text-[11px] bg-stone-100 border border-stone-200 text-stone-500 px-2.5 py-0.5 rounded-full"
+                        className="text-[11px] bg-pink-100 border border-pink-200 text-gray-700 px-2.5 py-0.5 rounded-full"
                       >
                         {tech}
                       </span>
@@ -215,13 +215,13 @@ const Projects = () => {
               )}
 
               {(modal.liveUrl || modal.githubUrl) && (
-                <div className="flex gap-5 mt-4 pt-3 border-t border-stone-100">
+                <div className="flex gap-5 mt-4 pt-3 border-t border-pink-100">
                   {modal.liveUrl && (
                     
                     <a href={modal.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-[12px] font-medium text-sky-500 hover:text-sky-600 transition-colors"
+                      className="inline-flex items-center gap-1.5 text-[12px] font-medium text-pink-600 hover:text-pink-700 transition-colors"
                     >
                       <LinkIcon size={12} /> Visit Project
                     </a>
@@ -231,7 +231,7 @@ const Projects = () => {
                     <a href={modal.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-[12px] font-medium text-stone-500 hover:text-stone-800 transition-colors"
+                      className="inline-flex items-center gap-1.5 text-[12px] font-medium text-gray-600 hover:text-black transition-colors"
                     >
                       <LinkIcon size={12} /> GitHub
                     </a>

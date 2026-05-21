@@ -7,12 +7,12 @@ import { doc, onSnapshot } from "firebase/firestore";
 
 // ─── Default fallback (sama dengan yang di ManageLayout) ──────────────────────
 const DEFAULT_PROFILE = {
-  name: "As'ad Mahmud Akram",
+  name: "Elsa",
   title: "Fullstack Developer",
-  username: "@asadmahmudakram",
-  footerName: "As'ad Mahmud Akram",
-  footerYear: "2025",
-  profileImage: "/assets/profile.jpg",
+  username: "@elsa",
+  footerName: "Elsa",
+  footerYear: "2026",
+  profileImage: "/assets/default-profile.jpg ",
 };
 
 const Layout = () => {
@@ -33,7 +33,7 @@ const Layout = () => {
           setProfile({ ...DEFAULT_PROFILE, ...snap.data() });
         }
       },
-      (err) => console.error("Layout snapshot error:", err)
+      (err) => console.error("Layout snapshot error:", err),
     );
     return () => unsub();
   }, []);
@@ -42,7 +42,7 @@ const Layout = () => {
   useEffect(() => {
     const style = document.createElement("style");
     style.textContent = `
-      html, body { overflow-x: hidden; max-width: 100vw; }
+      html, body { overflow-x: hidden; max-width: 100vw; background-color: #fbcfe8; }
       ::-webkit-scrollbar:horizontal { display: none; }
       * { -ms-overflow-style: none; scrollbar-width: none; }
       *::-webkit-scrollbar:horizontal { display: none; }
@@ -60,11 +60,11 @@ const Layout = () => {
 
   return (
     <div
-      className="min-h-screen bg-gradient-to-br from-gray-50 to-white text-gray-900 overflow-x-hidden"
+      className="min-h-screen bg-gradient-to-br from-pink-300 to-pink-100 text-white overflow-x-hidden"
       style={hideScrollbarStyle}
     >
       {/* Mobile Header */}
-      <div className="md:hidden flex items-center justify-between px-4 py-3 bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm sticky top-0 z-40">
+      <div className="md:hidden flex items-center justify-between px-4 py-3 bg-pink-400/90 backdrop-blur-md border-b border-pink-300 shadow-sm sticky top-0 z-40">
         <div className="flex items-center gap-2">
           <div className="relative">
             <img
@@ -74,33 +74,33 @@ const Layout = () => {
             />
             <div className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-green-500 rounded-full border border-white" />
           </div>
-          <span className="font-medium text-gray-800 text-sm">
+          <span className="font-medium text-white text-sm">
             {profile.name.split(" ").slice(0, 3).join(" ")}
           </span>
-          <span className="text-blue-500 text-xs">✔</span>
+          <span className="text-pink-200 text-xs">✔</span>
         </div>
         <div className="flex items-center gap-2">
           <button
             onClick={toggleLanguage}
-            className="text-gray-600 bg-white border border-gray-200 hover:border-gray-300 px-2.5 py-1 rounded-md text-xs font-medium shadow-sm hover:shadow transition-all duration-200"
+            className="text-white bg-pink-500/50 border border-pink-300 hover:border-pink-200 px-2.5 py-1 rounded-md text-xs font-medium shadow-sm hover:shadow transition-all duration-200"
           >
             {language === "en" ? "EN" : "ID"}
           </button>
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="p-1.5 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+            className="p-1.5 rounded-lg hover:bg-pink-500/30 transition-colors duration-200"
           >
             <div className="space-y-1">
-              <span className="block w-4 h-0.5 bg-gray-600 rounded-full" />
-              <span className="block w-4 h-0.5 bg-gray-600 rounded-full" />
-              <span className="block w-4 h-0.5 bg-gray-600 rounded-full" />
+              <span className="block w-4 h-0.5 bg-white rounded-full" />
+              <span className="block w-4 h-0.5 bg-white rounded-full" />
+              <span className="block w-4 h-0.5 bg-white rounded-full" />
             </div>
           </button>
         </div>
       </div>
 
       {/* Desktop Sidebar */}
-      <div className="hidden md:flex w-60 border-r border-gray-200 flex-col fixed h-full bg-white/95 backdrop-blur-sm shadow-sm overflow-x-hidden">
+      <div className="hidden md:flex w-60 border-r border-pink-300 flex-col fixed h-full bg-pink-400/95 backdrop-blur-sm shadow-sm overflow-x-hidden">
         <SidebarContent
           toggleLanguage={toggleLanguage}
           language={language}
@@ -115,7 +115,7 @@ const Layout = () => {
           onClick={() => setIsMenuOpen(false)}
         >
           <div
-            className="w-60 bg-white/95 backdrop-blur-md flex flex-col h-full text-gray-900 shadow-xl overflow-x-hidden"
+            className="w-60 bg-pink-400/95 backdrop-blur-md flex flex-col h-full text-white shadow-xl overflow-x-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             <SidebarContent
@@ -129,7 +129,7 @@ const Layout = () => {
 
       {/* Main Content */}
       <div
-        className="md:ml-60 min-h-screen bg-white/30 overflow-x-hidden"
+        className="md:ml-60 min-h-screen bg-pink-100/30 overflow-x-hidden"
         style={hideScrollbarStyle}
       >
         <div className="p-4 md:p-6 lg:p-8 w-full max-w-full">
@@ -150,7 +150,7 @@ const SidebarContent = ({ toggleLanguage, language, profile }) => {
   return (
     <>
       {/* Profile Section */}
-      <div className="p-5 flex flex-col items-center bg-gradient-to-b from-gray-50/80 to-white/80 border-b border-gray-100">
+      <div className="p-5 flex flex-col items-center bg-gradient-to-b from-pink-500/80 to-pink-400/80 border-b border-pink-300">
         <div className="relative w-20 h-20 rounded-full overflow-hidden mb-3 shadow-md ring-2 ring-white/50">
           <img
             src={profile.profileImage}
@@ -160,22 +160,22 @@ const SidebarContent = ({ toggleLanguage, language, profile }) => {
           <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" />
         </div>
 
-        <h2 className="text-lg font-bold text-gray-800 mb-0.5 text-center leading-tight">
+        <h2 className="text-lg font-bold text-white mb-0.5 text-center leading-tight">
           {profile.name}
         </h2>
-        <h2 className="text-sm font-semibold text-gray-700 mb-0.5 text-center leading-tight">
+        <h2 className="text-sm font-semibold text-pink-100 mb-0.5 text-center leading-tight">
           {profile.title}
         </h2>
-        <div className="text-gray-500 text-xs mb-3">{profile.username}</div>
+        <div className="text-pink-200 text-xs mb-3">{profile.username}</div>
 
         <div className="flex items-center gap-2 w-full">
-          <button className="hire-me-btn flex items-center justify-center gap-2 bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-900 hover:to-black text-white px-3 py-2 rounded-lg font-medium shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 flex-1 text-sm">
+          <button className="hire-me-btn flex items-center justify-center gap-2 bg-gradient-to-r from-white to-pink-100 hover:from-pink-50 hover:to-white text-pink-600 px-3 py-2 rounded-lg font-medium shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 flex-1 text-sm">
             <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse shadow-sm" />
             Hire me
           </button>
           <button
             onClick={toggleLanguage}
-            className="text-gray-600 bg-white/80 hover:bg-white border border-gray-200 hover:border-gray-300 px-2.5 py-2 rounded-lg text-xs font-medium shadow-sm hover:shadow transition-all duration-200"
+            className="text-white bg-pink-500/50 hover:bg-pink-500/70 border border-pink-300 hover:border-pink-200 px-2.5 py-2 rounded-lg text-xs font-medium shadow-sm hover:shadow transition-all duration-200"
           >
             {language === "en" ? "EN" : "ID"}
           </button>
@@ -185,12 +185,12 @@ const SidebarContent = ({ toggleLanguage, language, profile }) => {
       {/* Navigation */}
       <nav className="flex-1 px-3 py-2 overflow-y-auto">
         {[
-          { to: "/",            label: "Home",         icon: Home,     end: true },
-          { to: "/about",       label: "About",        icon: User },
-          { to: "/skills",      label: "Skills",       icon: Code },
-          { to: "/achievements",label: "Achievements", icon: Award },
-          { to: "/projects",    label: "Projects",     icon: Briefcase },
-          { to: "/contact",     label: "Contact",      icon: Mail },
+          { to: "/", label: "Home", icon: Home, end: true },
+          { to: "/about", label: "About", icon: User },
+          { to: "/skills", label: "Skills", icon: Code },
+          { to: "/achievements", label: "Achievements", icon: Award },
+          { to: "/projects", label: "Projects", icon: Briefcase },
+          { to: "/contact", label: "Contact", icon: Mail },
         ].map(({ to, label, icon: Icon, end }) => (
           <NavLink
             key={to}
@@ -199,8 +199,8 @@ const SidebarContent = ({ toggleLanguage, language, profile }) => {
             className={({ isActive }) =>
               `nav-item flex items-center gap-3 px-3 py-2.5 mx-1 my-0.5 rounded-lg transition-all duration-200 text-sm ${
                 isActive
-                  ? "bg-gradient-to-r from-gray-800 to-gray-900 text-white font-medium shadow-md"
-                  : "text-gray-600 hover:text-gray-900 hover:bg-gray-50/80 hover:shadow-sm"
+                  ? "bg-gradient-to-r from-pink-600 to-pink-700 text-white font-medium shadow-md"
+                  : "text-pink-100 hover:text-white hover:bg-pink-500/50 hover:shadow-sm"
               }`
             }
           >
@@ -214,11 +214,11 @@ const SidebarContent = ({ toggleLanguage, language, profile }) => {
       </nav>
 
       {/* Footer */}
-      <div className="p-4 border-t border-gray-100 bg-gradient-to-t from-gray-50/50 to-white/50">
-        <div className="text-gray-400 text-xs text-center space-y-0.5">
+      <div className="p-4 border-t border-pink-300 bg-gradient-to-t from-pink-500/50 to-pink-400/50">
+        <div className="text-pink-100 text-xs text-center space-y-0.5">
           <div className="font-medium">© {profile.footerYear}</div>
           <div className="leading-tight">{profile.footerName}</div>
-          <div className="text-gray-300">All rights reserved</div>
+          <div className="text-pink-200">All rights reserved</div>
         </div>
       </div>
     </>

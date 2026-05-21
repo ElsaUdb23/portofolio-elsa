@@ -45,23 +45,23 @@ const About = () => {
   if (isLoading) {
     return (
       <div className="max-w-6xl mx-auto px-4 py-10 flex justify-center">
-        <div className="w-6 h-6 border-2 border-stone-300 border-t-stone-600 rounded-full animate-spin" />
+        <div className="w-6 h-6 border-2 border-pink-300 border-t-pink-600 rounded-full animate-spin" />
       </div>
     );
   }
 
   return (
-    <div className="max-w-6xl mx-auto px-4 bg-white text-black">
+    <div className="max-w-6xl mx-auto px-4 bg-transparent text-black">
       {/* Header */}
       <div className="mb-6">
-        <h1 className="text-2xl font-medium tracking-tight mb-1.5">About</h1>
-        <p className="text-stone-400 text-sm">Sebuah cerita pendek tentang saya</p>
-        <div className="border-t border-stone-200 mt-4" />
+        <h1 className="text-2xl font-medium tracking-tight mb-1.5 text-black">About</h1>
+        <p className="text-gray-600 text-sm">Sebuah cerita pendek tentang saya</p>
+        <div className="border-t border-pink-300 mt-4" />
       </div>
 
       {/* Bio */}
       {bio && (
-        <p className="text-[13.5px] text-stone-500 leading-relaxed max-w-2xl mb-10">
+        <p className="text-[13.5px] text-gray-700 leading-relaxed max-w-2xl mb-10">
           {bio}
         </p>
       )}
@@ -77,12 +77,12 @@ const About = () => {
                   <img
                     src={edu.logo}
                     alt={edu.institution}
-                    className="w-10 h-10 rounded-lg border border-stone-200 object-contain bg-white flex-shrink-0"
+                    className="w-10 h-10 rounded-lg border border-pink-200 object-contain bg-pink-100/30 flex-shrink-0"
                   />
                 )}
                 <div className="flex-1 min-w-0">
-                  <p className="text-[13px] font-medium text-stone-900 leading-snug">{edu.institution}</p>
-                  <p className="text-[12px] text-stone-500 mt-0.5 truncate">{edu.degree}</p>
+                  <p className="text-[13px] font-medium text-black leading-snug">{edu.institution}</p>
+                  <p className="text-[12px] text-gray-600 mt-0.5 truncate">{edu.degree}</p>
                   <div className="flex flex-wrap gap-1.5 mt-2">
                     {edu.period && <MetaBadge mono>{edu.period}</MetaBadge>}
                     {edu.location && <MetaBadge>{edu.location}</MetaBadge>}
@@ -123,12 +123,12 @@ const About = () => {
                   <img
                     src={exp.logo}
                     alt={exp.company}
-                    className="w-10 h-10 rounded-lg border border-stone-200 object-contain bg-white flex-shrink-0"
+                    className="w-10 h-10 rounded-lg border border-pink-200 object-contain bg-pink-100/30 flex-shrink-0"
                   />
                 )}
                 <div className="flex-1 min-w-0">
-                  <p className="text-[13px] font-medium text-stone-900 leading-snug">{exp.title}</p>
-                  <p className="text-[12px] text-stone-500 mt-0.5 truncate">{exp.company}</p>
+                  <p className="text-[13px] font-medium text-black leading-snug">{exp.title}</p>
+                  <p className="text-[12px] text-gray-600 mt-0.5 truncate">{exp.company}</p>
                   <div className="flex flex-wrap gap-1.5 mt-2">
                     {exp.period && <MetaBadge mono>{exp.period}</MetaBadge>}
                     {exp.location && <MetaBadge>{exp.location}</MetaBadge>}
@@ -136,7 +136,7 @@ const About = () => {
                   </div>
 
                   {exp.description && (
-                    <p className="text-[12px] text-stone-400 leading-relaxed mt-2.5 pt-2.5 border-t border-stone-100">
+                    <p className="text-[12px] text-gray-600 leading-relaxed mt-2.5 pt-2.5 border-t border-pink-200">
                       {exp.description}
                     </p>
                   )}
@@ -169,22 +169,22 @@ const About = () => {
 
 const Section = ({ icon, title, sub, children }) => (
   <div className="mb-10">
-    <h2 className="flex items-center gap-2 text-sm font-medium text-stone-900 mb-1">
+    <h2 className="flex items-center gap-2 text-sm font-medium text-black mb-1">
       {icon} {title}
     </h2>
-    <p className="text-xs text-stone-400 mb-4">{sub}</p>
+    <p className="text-xs text-gray-500 mb-4">{sub}</p>
     <div className="flex flex-col gap-3">{children}</div>
   </div>
 );
 
 const Card = ({ children }) => (
-  <div className="flex gap-3.5 bg-stone-50 border border-stone-200 rounded-xl p-4 hover:border-stone-300 hover:shadow-md transition-all duration-200">
+  <div className="flex gap-3.5 bg-pink-100/50 border border-pink-200 rounded-xl p-4 hover:border-pink-300 hover:shadow-md transition-all duration-200">
     {children}
   </div>
 );
 
 const MetaBadge = ({ children, mono }) => (
-  <span className={`inline-flex items-center text-[11px] px-2 py-0.5 rounded-full border border-stone-200 bg-white text-stone-500 ${mono ? "font-mono" : ""}`}>
+  <span className={`inline-flex items-center text-[11px] px-2 py-0.5 rounded-full border border-pink-200 bg-pink-200/30 text-gray-700 ${mono ? "font-mono" : ""}`}>
     {children}
   </span>
 );
@@ -192,7 +192,7 @@ const MetaBadge = ({ children, mono }) => (
 const ToggleBtn = ({ expanded, onClick, label }) => (
   <button
     onClick={onClick}
-    className="inline-flex items-center gap-1 mt-2.5 text-[11px] font-medium text-stone-500 bg-white border border-stone-200 rounded-full px-2.5 py-1 hover:border-stone-300 hover:text-stone-800 transition"
+    className="inline-flex items-center gap-1 mt-2.5 text-[11px] font-medium text-gray-600 bg-pink-200/30 border border-pink-200 rounded-full px-2.5 py-1 hover:border-pink-300 hover:text-black transition"
   >
     {expanded ? <ChevronUp size={10} /> : <ChevronDown size={10} />}
     {label}
@@ -200,18 +200,18 @@ const ToggleBtn = ({ expanded, onClick, label }) => (
 );
 
 const ExpandBox = ({ children }) => (
-  <div className="mt-3 pt-3 border-t border-stone-100 flex flex-col gap-3">
+  <div className="mt-3 pt-3 border-t border-pink-200 flex flex-col gap-3">
     {children}
   </div>
 );
 
 const ExpandGroup = ({ label, items }) => (
   <div>
-    <p className="text-[10px] font-semibold uppercase tracking-widest text-stone-400 mb-2">{label}</p>
+    <p className="text-[10px] font-semibold uppercase tracking-widest text-gray-500 mb-2">{label}</p>
     <ul className="flex flex-col gap-1.5">
       {items.map((item, idx) => (
-        <li key={idx} className="flex gap-2 text-[12px] text-stone-500 leading-relaxed">
-          <span className="text-stone-300 mt-0.5 shrink-0">–</span>
+        <li key={idx} className="flex gap-2 text-[12px] text-gray-600 leading-relaxed">
+          <span className="text-gray-400 mt-0.5 shrink-0">–</span>
           <span>{item}</span>
         </li>
       ))}

@@ -4,27 +4,35 @@ import { db } from "../firebase";
 import { doc, getDoc } from "firebase/firestore";
 
 const DEFAULT_SKILLS = [
-  { name: "HTML",         color: "border-orange-500", logo: "/logos/html.svg" },
-  { name: "JavaScript",   color: "border-yellow-500", logo: "/logos/js.svg" },
-  { name: "PHP",          color: "border-indigo-500", logo: "/logos/php.svg" },
-  { name: "Laravel",      color: "border-red-500",    logo: "/logos/laravel.svg" },
-  { name: "SQLite",       color: "border-blue-400",   logo: "/logos/sqlite.svg" },
-  { name: "Next.js",      color: "border-gray-800",   logo: "/logos/nextjs.svg" },
-  { name: "Vite",         color: "border-purple-500", logo: "/logos/vite.svg" },
-  { name: "GitHub",       color: "border-gray-800",   logo: "/logos/github.svg" },
-  { name: "Kotlin",       color: "border-purple-700", logo: "/logos/kotlin.svg" },
-  { name: "TailwindCSS",  color: "border-blue-500",   logo: "/logos/tailwind.svg" },
-  { name: "CSS",          color: "border-blue-500",   logo: "/logos/css.svg" },
-  { name: "Autoprefixer", color: "border-blue-500",   logo: "/logos/autoprefixer.svg" },
-  { name: "Mysql",        color: "border-blue-500",   logo: "/logos/mysql.svg" },
-  { name: "Invinity",     color: "border-purple-500", logo: "/logos/infinity.svg" },
-  { name: "Eslint",       color: "border-blue-500",   logo: "/logos/eslint.svg" },
-  { name: "Vercel",       color: "border-purple-700", logo: "/logos/vercel.svg" },
+  { name: "HTML", color: "border-orange-500", logo: "/logos/html.svg" },
+  { name: "JavaScript", color: "border-yellow-500", logo: "/logos/js.svg" },
+  { name: "PHP", color: "border-indigo-500", logo: "/logos/php.svg" },
+  { name: "Laravel", color: "border-red-500", logo: "/logos/laravel.svg" },
+  { name: "SQLite", color: "border-blue-400", logo: "/logos/sqlite.svg" },
+  { name: "Next.js", color: "border-gray-800", logo: "/logos/nextjs.svg" },
+  { name: "Vite", color: "border-purple-500", logo: "/logos/vite.svg" },
+  { name: "GitHub", color: "border-gray-800", logo: "/logos/github.svg" },
+  { name: "Kotlin", color: "border-purple-700", logo: "/logos/kotlin.svg" },
+  {
+    name: "TailwindCSS",
+    color: "border-blue-500",
+    logo: "/logos/tailwind.svg",
+  },
+  { name: "CSS", color: "border-blue-500", logo: "/logos/css.svg" },
+  {
+    name: "Autoprefixer",
+    color: "border-blue-500",
+    logo: "/logos/autoprefixer.svg",
+  },
+  { name: "Mysql", color: "border-blue-500", logo: "/logos/mysql.svg" },
+  { name: "Invinity", color: "border-purple-500", logo: "/logos/infinity.svg" },
+  { name: "Eslint", color: "border-blue-500", logo: "/logos/eslint.svg" },
+  { name: "Vercel", color: "border-purple-700", logo: "/logos/vercel.svg" },
 ];
 
 const Home = () => {
-  const [isVisible,  setIsVisible]  = useState(false);
-  const [homeData,   setHomeData]   = useState(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const [homeData, setHomeData] = useState(null);
 
   /* ── Load from Firestore ── */
   useEffect(() => {
@@ -84,18 +92,25 @@ const Home = () => {
     `;
     document.head.appendChild(style);
     const timer = setTimeout(() => setIsVisible(true), 100);
-    return () => { document.head.removeChild(style); clearTimeout(timer); };
+    return () => {
+      document.head.removeChild(style);
+      clearTimeout(timer);
+    };
   }, []);
 
   /* ── Derived values with fallbacks ── */
-  const title       = homeData?.title       ?? "FULLSTACK DEVELOPER";
-  const name        = homeData?.name        ?? "Hi, I'm As'ad Mahmud Akram";
-  const location    = homeData?.location    ?? "Based in Klaten, Indonesia 🇮🇩";
-  const workType    = homeData?.workType    ?? "Onsite";
-  const bio         = homeData?.bio         ?? "Saya adalah mahasiswa Teknologi Komputer di Universitas Teknologi Digital Indonesia angkatan 2023. Sebagai seorang pengembang perangkat lunak yang antusias, saya memiliki fokus utama pada pengembangan frontend dengan pengalaman menggunakan React serta pemahaman berbagai teknologi web. Selain itu, saya juga memiliki ketertarikan dan pengalaman dalam desain UI/UX, dengan tujuan menciptakan antarmuka yang fungsional sekaligus menarik secara visual.";
-  const resumeUrl   = homeData?.resumeUrl   ?? "/src/assets/As'ad Mahmud Akram_CV.pdf";
-  const serviceText = homeData?.serviceText ?? "Sebagai seorang pengembang frontend lepas, saya berdedikasi untuk menciptakan situs web yang luar biasa dan solusi web strategis untuk merek, perusahaan, institusi, dan startup. Dengan pengalaman yang mendalam dalam pengembangan web modern, saya siap membantu mewujudkan visi digital Anda.";
-  const skills      = homeData?.skills      ?? DEFAULT_SKILLS;
+  const title = homeData?.title ?? "FULLSTACK DEVELOPER";
+  const name = homeData?.name ?? "Hi, I'm Elsa";
+  const location = homeData?.location ?? "Based in Klaten, Indonesia 🇮🇩";
+  const workType = homeData?.workType ?? "Onsite";
+  const bio =
+    homeData?.bio ??
+    "Saya adalah mahasiswa angkatan 2023. Sebagai seorang pengembang perangkat lunak yang antusias, saya memiliki fokus utama pada pengembangan frontend dengan pengalaman menggunakan React serta pemahaman berbagai teknologi web. Selain itu, saya juga memiliki ketertarikan dan pengalaman dalam desain UI/UX, dengan tujuan menciptakan antarmuka yang fungsional sekaligus menarik secara visual.";
+  const resumeUrl = homeData?.resumeUrl ?? "/src/assets/";
+  const serviceText =
+    homeData?.serviceText ??
+    "Sebagai seorang pengembang frontend lepas, saya berdedikasi untuk menciptakan situs web yang luar biasa dan solusi web strategis untuk merek, perusahaan, institusi, dan startup. Dengan pengalaman yang mendalam dalam pengembangan web modern, saya siap membantu mewujudkan visi digital Anda.";
+  const skills = homeData?.skills ?? DEFAULT_SKILLS;
 
   /* ── Split skills into rows of 3 for mobile ── */
   const skillRows = [];
@@ -104,30 +119,29 @@ const Home = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white text-black">
+    <div className="min-h-screen bg-transparent text-black">
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6">
-
         {/* ── Intro ── */}
         <div className="mb-8 sm:mb-12">
-          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 leading-tight text-black">
             {title}
           </h1>
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 leading-tight">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 leading-tight text-black">
             {name}
           </h2>
 
-          <div className="flex flex-col gap-1 sm:gap-2 text-gray-600 mb-4 sm:mb-6 text-sm">
+          <div className="flex flex-col gap-1 sm:gap-2 text-gray-700 mb-4 sm:mb-6 text-sm">
             <div className="flex items-center gap-2">
-              <div className="w-1 h-1 bg-gray-400 rounded-full" />
+              <div className="w-1 h-1 bg-gray-600 rounded-full" />
               {location}
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-1 h-1 bg-gray-400 rounded-full" />
+              <div className="w-1 h-1 bg-gray-600 rounded-full" />
               {workType}
             </div>
           </div>
 
-          <div className="text-gray-700 space-y-3 sm:space-y-3 text-sm sm:text-base leading-relaxed">
+          <div className="text-gray-800 space-y-3 sm:space-y-3 text-sm sm:text-base leading-relaxed">
             <p>{bio}</p>
           </div>
         </div>
@@ -147,15 +161,15 @@ const Home = () => {
             </div>
           </div>
 
-          <hr className="border-gray-300 my-6 sm:my-8" />
+          <hr className="border-gray-400 my-6 sm:my-8" />
 
           {/* ── Skills ── */}
           <div className="mb-8 sm:mb-10">
             <div className="flex items-center gap-2 mb-3 sm:mb-4">
-              <Code size={20} className="sm:w-6 sm:h-6" />
-              <h2 className="text-lg sm:text-xl font-semibold">Skills</h2>
+              <Code size={20} className="sm:w-6 sm:h-6 text-black" />
+              <h2 className="text-lg sm:text-xl font-semibold text-black">Skills</h2>
             </div>
-            <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">
+            <p className="text-gray-700 mb-4 sm:mb-6 text-sm sm:text-base">
               My professional skills and technologies
             </p>
 
@@ -168,20 +182,34 @@ const Home = () => {
                       <div
                         key={`${rowIndex}-${colIndex}`}
                         className={`flip-card h-20 w-full ${isVisible ? "animate-slide-in-right" : "opacity-0"}`}
-                        style={{ animationDelay: `${(rowIndex * 3 + colIndex) * 100}ms` }}
+                        style={{
+                          animationDelay: `${(rowIndex * 3 + colIndex) * 100}ms`,
+                        }}
                       >
                         <div className="flip-card-inner h-full w-full relative">
                           {/* Front */}
-                          <div className={`flip-card-front absolute inset-0 text-black px-2 py-2 flex flex-col items-center justify-center gap-1 border ${skill.color} bg-black/5 rounded-lg shadow-sm backface-hidden`}>
-                            <img src={skill.logo} alt={skill.name}
+                          <div
+                            className={`flip-card-front absolute inset-0 text-black px-2 py-2 flex flex-col items-center justify-center gap-1 border ${skill.color} bg-pink-200/50 rounded-lg shadow-sm backface-hidden`}
+                          >
+                            <img
+                              src={skill.logo}
+                              alt={skill.name}
                               className="w-5 h-5 object-contain"
-                              onError={e => { e.target.style.display = "none"; }}
+                              onError={(e) => {
+                                e.target.style.display = "none";
+                              }}
                             />
-                            <span className="text-xs font-medium text-center leading-tight">{skill.name}</span>
+                            <span className="text-xs font-medium text-center leading-tight text-black">
+                              {skill.name}
+                            </span>
                           </div>
                           {/* Back */}
-                          <div className={`flip-card-back absolute inset-0 text-white px-2 py-2 flex items-center justify-center border ${skill.color} bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg shadow-sm backface-hidden rotateY-180`}>
-                            <span className="text-xs font-bold text-center">{skill.name}</span>
+                          <div
+                            className={`flip-card-back absolute inset-0 text-white px-2 py-2 flex items-center justify-center border ${skill.color} bg-gradient-to-br from-pink-600 to-pink-700 rounded-lg shadow-sm backface-hidden rotateY-180`}
+                          >
+                            <span className="text-xs font-bold text-center text-white">
+                              {skill.name}
+                            </span>
                           </div>
                         </div>
                       </div>
@@ -196,12 +224,19 @@ const Home = () => {
               <div className="overflow-hidden relative marquee-container mb-4">
                 <div className="flex w-max animate-marquee gap-3">
                   {skills.concat(skills).map((skill, index) => (
-                    <div key={index} className={`text-black px-4 py-2 flex items-center gap-2 border ${skill.color} bg-black/5 backdrop-blur-md rounded-lg shadow-md whitespace-nowrap hover:bg-black/10 transition-all duration-300`}>
-                      <img src={skill.logo} alt={skill.name}
+                    <div
+                      key={index}
+                      className={`text-black px-4 py-2 flex items-center gap-2 border ${skill.color} bg-pink-200/50 backdrop-blur-md rounded-lg shadow-md whitespace-nowrap hover:bg-pink-300/50 transition-all duration-300`}
+                    >
+                      <img
+                        src={skill.logo}
+                        alt={skill.name}
                         className="w-4 h-4 object-contain"
-                        onError={e => { e.target.style.display = "none"; }}
+                        onError={(e) => {
+                          e.target.style.display = "none";
+                        }}
                       />
-                      <span className="text-sm font-medium">{skill.name}</span>
+                      <span className="text-sm font-medium text-black">{skill.name}</span>
                     </div>
                   ))}
                 </div>
@@ -209,12 +244,19 @@ const Home = () => {
               <div className="overflow-hidden relative marquee-container">
                 <div className="flex w-max animate-marquee-right gap-3">
                   {skills.concat(skills).map((skill, index) => (
-                    <div key={index} className={`text-black px-4 py-2 flex items-center gap-2 border ${skill.color} bg-black/5 backdrop-blur-md rounded-lg shadow-md whitespace-nowrap hover:bg-black/10 transition-all duration-300`}>
-                      <img src={skill.logo} alt={skill.name}
+                    <div
+                      key={index}
+                      className={`text-black px-4 py-2 flex items-center gap-2 border ${skill.color} bg-pink-200/50 backdrop-blur-md rounded-lg shadow-md whitespace-nowrap hover:bg-pink-300/50 transition-all duration-300`}
+                    >
+                      <img
+                        src={skill.logo}
+                        alt={skill.name}
                         className="w-4 h-4 object-contain"
-                        onError={e => { e.target.style.display = "none"; }}
+                        onError={(e) => {
+                          e.target.style.display = "none";
+                        }}
                       />
-                      <span className="text-sm font-medium">{skill.name}</span>
+                      <span className="text-sm font-medium text-black">{skill.name}</span>
                     </div>
                   ))}
                 </div>
@@ -225,14 +267,13 @@ const Home = () => {
           {/* ── Service ── */}
           <div className="mb-8 sm:mb-10">
             <div className="flex items-center gap-2 mb-3 sm:mb-4">
-              <Coffee size={18} className="sm:w-5 sm:h-5" />
-              <h2 className="text-lg sm:text-xl font-semibold">Service</h2>
+              <Coffee size={18} className="sm:w-5 sm:h-5 text-black" />
+              <h2 className="text-lg sm:text-xl font-semibold text-black">Service</h2>
             </div>
-            <div className="text-gray-700 space-y-3 sm:space-y-4 text-sm sm:text-base leading-relaxed">
+            <div className="text-gray-800 space-y-3 sm:space-y-4 text-sm sm:text-base leading-relaxed">
               <p>{serviceText}</p>
             </div>
           </div>
-
         </div>
       </div>
     </div>

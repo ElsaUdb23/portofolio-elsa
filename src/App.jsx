@@ -12,7 +12,6 @@ import About from "./pages/About";
 import Achievements from "./pages/Achievements";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
-import Chat from "./pages/Chat";
 import Skills from "./pages/Skills";
 import AdminLogin from "./pages/admin/AdminLogin";
 import AdminLayout from "./pages/admin/AdminLayout";
@@ -50,25 +49,24 @@ function AppRoutes() {
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
 
         {/* Halaman Manage — dibungkus ManageLayout */}
-        <Route path="/admin/layout"       element={<ManageLayout />} />
-        <Route path="/admin/home"         element={<ManageHome />} />
-        <Route path="/admin/about"        element={<ManageAbout />} />
-        <Route path="/admin/skills"       element={<ManageSkills />} />
+        <Route path="/admin/layout" element={<ManageLayout />} />
+        <Route path="/admin/home" element={<ManageHome />} />
+        <Route path="/admin/about" element={<ManageAbout />} />
+        <Route path="/admin/skills" element={<ManageSkills />} />
         <Route path="/admin/achievements" element={<ManageAchievements />} />
-        <Route path="/admin/projects"     element={<ManageProjects />} />
-        <Route path="/admin/contact"      element={<ManageContact />} />
+        <Route path="/admin/projects" element={<ManageProjects />} />
+        <Route path="/admin/contact" element={<ManageContact />} />
       </Route>
 
       {/* Portfolio routes */}
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="about"         element={<About />} />
-        <Route path="achievements"  element={<Achievements />} />
-        <Route path="projects"      element={<Projects />} />
-        <Route path="contact"       element={<Contact />} />
-        <Route path="skills"        element={<Skills />} />
-        <Route path="chat"          element={<Chat />} />
-        <Route path="*"             element={<NotFound />} />
+        <Route path="about" element={<About />} />
+        <Route path="achievements" element={<Achievements />} />
+        <Route path="projects" element={<Projects />} />
+        <Route path="contact" element={<Contact />} />
+        <Route path="skills" element={<Skills />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   );
